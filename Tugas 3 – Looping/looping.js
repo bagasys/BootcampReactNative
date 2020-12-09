@@ -1,18 +1,22 @@
-let i = 2
+let a = 2
+let b = 2
+console.log('LOOP PERTAMA')
+while (a > 0 && a <= 22) {
+    if(a === 22) {
+        b = -2
+        a = 22
+        console.log('LOOP KEDUA')
+    } else {
+        if (b > 0) {
+            console.log(`${a} - I love coding`)
+        } else {
+            console.log(`${a} - I will become a mobile developer`)
+        }
 
-console.log('LOOPING PERTAMA');
-while (i <= 20) {
-    console.log(`${i} - I love coding`);
-    i += 2;
+    }
+    a+=b
 }
 
-i -= 2;
-
-console.log('LOOPING KEDUA');
-while (i > 0) {
-    console.log(`${i} - I will become a mobile developer`);
-    i -= 2;
-}
 
 //------------------------------------------------------------------
 
@@ -34,7 +38,7 @@ for (let i = 1; i < 21; i++) {
 
 // ------------------------------------------------------------
 
-let a = 4, b = 8;
+a = 4; b = 8;
 for (let i = 0; i < a; i++) {
     let row = ''
     for (let j = 0; j < b; j++) {
