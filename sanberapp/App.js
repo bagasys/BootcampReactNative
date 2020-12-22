@@ -100,6 +100,9 @@ const styles = StyleSheet.create({
     color: "#3c3c3c",
     paddingTop: 4,
   },
+  body: {
+    flex: 1,
+  },
 });
 
 export default App;

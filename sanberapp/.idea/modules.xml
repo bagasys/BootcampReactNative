@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Downloads/react-native-youtube-ui-master/.idea/react-native-youtube-ui-master.iml" filepath="$USER_HOME$/Downloads/react-native-youtube-ui-master/.idea/react-native-youtube-ui-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/sanberapp-expo.iml" filepath="$PROJECT_DIR$/.idea/sanberapp-expo.iml" />
     </modules>
   </component>
