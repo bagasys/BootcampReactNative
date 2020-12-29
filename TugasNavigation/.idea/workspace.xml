@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="780a4d22-29de-4a8e-ac7e-6bc2812f4ac6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Tugas13/styling-flex-rn/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Tugas13/styling-flex-rn/.idea/vcs.xml" afterDir="false" />
@@ -33,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../rnn5-07-finished" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -54,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609223204276</updated>
       <workItem from="1609223205423" duration="10387000" />
-      <workItem from="1609236173286" duration="352000" />
+      <workItem from="1609236173286" duration="6833000" />
     </task>
     <servers />
   </component>
