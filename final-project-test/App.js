@@ -6,18 +6,14 @@ import {
   DefaultTheme,
   Provider as PaperProvider,
 } from "react-native-paper";
+import theme from "./src/theme";
 
 export default function App() {
   return (
     <AuthState>
-      <PaperProvider>
+      <PaperProvider theme={theme}>
         <View style={styles.container}>
-          <Button
-            mode="contained"
-
-          >
-            hahaha
-          </Button>
+          <Button mode="contained">hahaha</Button>
         </View>
       </PaperProvider>
     </AuthState>

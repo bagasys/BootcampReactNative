@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="rnn5-07-finished" />
+    <orderEntry type="module" module-name="final-project" />
   </component>
 </module>
