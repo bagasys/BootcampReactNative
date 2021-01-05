@@ -4,11 +4,11 @@ import { List } from 'react-native-paper';
 import pokemonContext from "../context/pokemon/pokemonContext";
 import PokemonList from "../components/PokemonList";
 
-const PokedexScreen = () => {
+const PokedexScreen = ({navigation}) => {
 
 
   return (
-      <PokemonList/>
+      <PokemonList navigation={navigation}/>
   );
 };
 

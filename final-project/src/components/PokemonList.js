@@ -3,7 +3,7 @@ import { List } from "react-native-paper";
 import { FlatList } from "react-native";
 import PokeListItem from "./PokeListItem";
 import pokemonContext from "../context/pokemon/pokemonContext";
-const PokemonList = () => {
+const PokemonList = ({navigation}) => {
   const { getPokemons, pokemons } = useContext(pokemonContext);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const PokemonList = () => {
   }, []);
 
   const renderPokemonListItem = ({ item }) => {
-    return <PokeListItem name={item.name} />;
+    return <PokeListItem name={item.name} navigation={navigation}/>;
   };
   return (
     <FlatList

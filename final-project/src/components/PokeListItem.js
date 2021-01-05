@@ -4,7 +4,7 @@ import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import axios from "axios";
 import { Chip } from "react-native-paper";
 
-const PokemonListItem = ({ name }) => {
+const PokemonListItem = ({ name, navigation }) => {
   const [pokemon, setPokemon] = useState(null);
 
   const getPokemon = async (name) => {
@@ -36,21 +36,30 @@ const PokemonListItem = ({ name }) => {
     );
   };
 
-  const renderChip = ({item}) => (
-    <Chip icon="" >
-        {item.type.name}
-    </Chip>
-  );
+  const renderChip = ({ item }) => <Chip icon="">{item.type.name}</Chip>;
 
   return (
-    <Card style={styles.container}>
+    <Card
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate("Pokemon", {
+          screen: "Info",
+          params: { name: pokemon.name },
+        });
+      }}
+    >
       <Card.Title
         title={pokemon.name}
         subtitle="Card Subtitle"
         left={renderPokemonImage}
       />
       <Card.Content>
-        <FlatList data={pokemon.types} numColumns={2} renderItem={renderChip} keyExtractor={item => item.name} />
+        <FlatList
+          data={pokemon.types}
+          numColumns={2}
+          renderItem={renderChip}
+          keyExtractor={(item) => item.name}
+        />
       </Card.Content>
     </Card>
   );

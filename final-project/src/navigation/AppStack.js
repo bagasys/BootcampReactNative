@@ -1,17 +1,17 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import SignInScreen from "../screens/SignInScreen";
-import HomeScreen from "../screens/HomeScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import PokedexScreen from "../screens/PokedexScreen";
+import PokemonTab from "./PokemonTab";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const Stack1 = () => {
+const PokedexStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Pokedex" component={PokedexScreen} />
+      <Stack.Screen name="Pokemon" component={PokemonTab} />
     </Stack.Navigator>
   );
 };
@@ -19,7 +19,8 @@ const Stack1 = () => {
 const AppNavigator = () => {
   return (
     <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={Stack1} />
+
+      <Drawer.Screen name="Home" component={PokedexStack} />
     </Drawer.Navigator>
   );
 };

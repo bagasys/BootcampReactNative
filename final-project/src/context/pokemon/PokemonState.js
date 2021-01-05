@@ -1,12 +1,13 @@
 import React, { useReducer } from "react";
 import pokemonReducer from "./pokemonReducer";
 import PokemonContext from "./pokemonContext";
-import { GET_POKEMONS } from "../types";
+import { GET_POKEMONS, GET_POKEMON } from "../types";
 import axios from "axios";
 
 const PokemonState = (props) => {
   const initialState = {
     pokemons: [],
+    pokemon: undefined,
   };
 
   const [state, dispatch] = useReducer(pokemonReducer, initialState);
@@ -23,9 +24,21 @@ const PokemonState = (props) => {
     } catch (e) {}
   };
 
+  const getPokemon = async (name) => {
+    try {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+      dispatch({
+        type: GET_POKEMON,
+        payload: { pokemon: res.data },
+      });
+    } catch (e) {}
+  };
+
   const value = {
     pokemons: state.pokemons,
+    pokemon: state.pokemon,
     getPokemons,
+    getPokemon
   };
 
   return (
