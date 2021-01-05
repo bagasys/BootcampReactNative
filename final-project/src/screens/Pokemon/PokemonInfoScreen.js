@@ -27,8 +27,7 @@ const PokemonInfoScreen = ({ route }) => {
 
   useEffect(() => {
     getPokemon(route.params.name);
-
-  }, [])
+  }, []);
 
   const renderPokemonImage = (props) => {
     return (
@@ -41,43 +40,50 @@ const PokemonInfoScreen = ({ route }) => {
       />
     );
   };
-  if(!pokemon) {
-    return <View>
-      <Text>asdas</Text>
-    </View>
+  if (!pokemon) {
+    return (
+      <View>
+        <Text>asdas</Text>
+      </View>
+    );
   }
-
+  const stat_total = pokemon.stats.length;
   return (
     <View style={styles.container}>
-      <Card>
+      <Card style={{ marginBottom: 20 }}>
         <Card.Title
           title={pokemon.name}
-          subtitle="Card Subtitle"
+          subtitle={`Height: ${pokemon.height / 10}m Weight: ${
+            pokemon.weight / 10
+          }kg`}
           left={renderPokemonImage}
         />
         <Card.Content></Card.Content>
       </Card>
       <ScrollView>
-        <Card>
+        <Card style={{ marginBottom: 20 }}>
           <Card.Title title="Abilites" />
           <Card.Content>
             {pokemon.abilities.map((ability) => (
-              <Chip>{ability.ability.name}</Chip>
+              <Chip style={{ marginBottom: 5 }}>{ability.ability.name}</Chip>
             ))}
           </Card.Content>
         </Card>
 
-        <Card>
+        <Card style={{ marginBottom: 20 }}>
           <Card.Title title="Base Stats" />
           <Card.Content>
             {pokemon.stats.map((stat) => (
-              <View style={{ marginBottom: 8 }}>
+              <View style={{ marginBottom: 8 }} key={stat.name}>
                 <Text>
                   {stat.stat.name}: {stat.base_stat}
                 </Text>
                 <ProgressBar progress={stat.base_stat / 100} />
               </View>
             ))}
+            <View>
+              <Text>Total: {stat_total}</Text>
+            </View>
           </Card.Content>
         </Card>
       </ScrollView>
@@ -88,7 +94,7 @@ const PokemonInfoScreen = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     // alignItems: "center",
   },
   tinyLogo: {
