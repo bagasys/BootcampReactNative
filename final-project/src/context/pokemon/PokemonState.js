@@ -15,7 +15,7 @@ const PokemonState = (props) => {
   const getPokemons = async () => {
     try {
       const res = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
+        "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1118"
       );
       dispatch({
         type: GET_POKEMONS,
