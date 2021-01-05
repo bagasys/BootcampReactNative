@@ -7,16 +7,18 @@ import {
 } from "react-native-paper";
 import theme from "./src/theme";
 import RootStack from "./src/navigation/RootStack";
+import PokemonState from "./src/context/pokemon/PokemonState";
 
 function App() {
   return (
     <AuthState>
-      <PaperProvider theme={theme}>
-        <RootStack/>
-      </PaperProvider>
+      <PokemonState>
+        <PaperProvider theme={theme}>
+          <RootStack />
+        </PaperProvider>
+      </PokemonState>
     </AuthState>
   );
 }
 
 export default App;
-
