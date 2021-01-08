@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { Button, Text, TextInput, Caption } from "react-native-paper";
+import { Button, Text, TextInput, Caption, Snackbar } from "react-native-paper";
 import authContext from "../context/auth/authContext";
 import { Avatar } from "react-native-paper";
 
@@ -8,7 +8,7 @@ const SignInScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { login } = useContext(authContext);
+  const { login, loading, error } = useContext(authContext);
 
   return (
     <View style={styles.container}>
@@ -23,20 +23,30 @@ const SignInScreen = () => {
           PokeApp
         </Text>
       </View>
-
-      <TextInput label="Email" value={email} onChangeText={setEmail} style={{marginBottom: 10}} />
+      <Caption>
+        Demo account: eve.holt@reqres.in & anything for password
+      </Caption>
+      {error && <Caption style={{ color: "red" }}>{error}</Caption>}
+      <TextInput
+        label="Email"
+        value={email}
+        onChangeText={setEmail}
+        style={{ marginBottom: 10 }}
+      />
       <TextInput
         label="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry={true}
-        style={{marginBottom: 10}}
+        style={{ marginBottom: 10 }}
       />
       <Button
         icon="login"
         mode="contained"
         onPress={() => login({ email, password })}
-        style={{marginBottom: 10}}
+        style={{ marginBottom: 10 }}
+        disabled={loading}
+        loading={loading}
       >
         SignIn
       </Button>
@@ -51,7 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     padding: 20,
-    paddingTop: 50,
+    paddingTop: 0,
   },
 });
 

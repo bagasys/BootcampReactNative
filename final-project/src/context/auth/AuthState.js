@@ -3,16 +3,26 @@ import { View } from "react-native";
 import authReducer from "./authReducer";
 import AuthContext from "./authContext";
 import axios from "axios";
-import { LOGIN } from "../types";
+import { LOGIN, LOGIN_FAIL, SET_LOADING } from "../types";
 
 const AuthState = (props) => {
   const initialState = {
     token: undefined,
+    loading: false,
+    error: null,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  const setLoading = () => {
+    dispatch({
+      type: SET_LOADING,
+    });
+  };
+
   const login = async (formState) => {
+    setLoading();
+
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -32,13 +42,18 @@ const AuthState = (props) => {
       console.log(data);
     } catch (e) {
       if (e.response.status === 400) {
-        console.log("username password salah");
+        dispatch({
+          type: LOGIN_FAIL,
+          payload: { error: e.response.data.error },
+        });
       }
     }
   };
 
   const value = {
     token: state.token,
+    loading: state.loading,
+    error: state.error,
     login,
   };
 
