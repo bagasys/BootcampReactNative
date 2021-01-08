@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import { Card, Chip, ProgressBar } from "react-native-paper";
+import { Card, Chip, Divider, ProgressBar } from "react-native-paper";
 import pokemonContext from "../../context/pokemon/pokemonContext";
 
 const PokemonInfoScreen = () => {
@@ -17,7 +17,11 @@ const PokemonInfoScreen = () => {
     );
   };
 
-  const stat_total = pokemon.stats.length;
+  const stat_total = pokemon.stats.reduce((total, current) => {
+    return total + current.base_stat;
+  }, 0);
+
+
   return (
     <View style={styles.container}>
       <Card style={{ marginBottom: 10 }}>

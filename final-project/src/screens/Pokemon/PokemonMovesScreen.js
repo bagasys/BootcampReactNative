@@ -18,17 +18,18 @@ const PokemonMovesScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <Card>
+      <Card style={{marginBottom: 10}}>
         <Card.Title
           title={pokemon.name}
           subtitle={`Height: ${pokemon.height / 10}m Weight: ${
-              pokemon.weight / 10
+            pokemon.weight / 10
           }kg`}
           left={renderPokemonImage}
         />
       </Card>
-      <Title style={{ marginLeft: 15 }}>Moves {pokemon.name}</Title>
+
       <Card>
+        <Card.Title title="Moves" />
         <DataTable>
           <DataTable.Header>
             <DataTable.Title>Name</DataTable.Title>
@@ -49,8 +50,6 @@ const PokemonMovesScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#fff",
-    // alignItems: "center",
   },
   tinyLogo: {
     width: 50,
