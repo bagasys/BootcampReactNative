@@ -1,4 +1,5 @@
 export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const CLEAR_POKEMON = "CLEAR_POKEMON";
 export const SET_LOADING = "SET_LOADING";

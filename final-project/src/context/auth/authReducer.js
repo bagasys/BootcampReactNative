@@ -1,4 +1,4 @@
-import { LOGIN, LOGIN_FAIL, SET_LOADING } from "../types";
+import { LOGIN, LOGIN_FAIL, SET_LOADING, LOGOUT } from "../types";
 
 const authReducer = (state, action) => {
   if (action.type === LOGIN) {
@@ -22,6 +22,15 @@ const authReducer = (state, action) => {
     return {
       ...state,
       loading: true,
+    };
+  }
+
+  if (action.type === LOGOUT) {
+    return {
+      ...state,
+      token: null,
+      loading: false,
+      error: null,
     };
   }
 

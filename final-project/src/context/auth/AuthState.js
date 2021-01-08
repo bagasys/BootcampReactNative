@@ -3,7 +3,7 @@ import { View } from "react-native";
 import authReducer from "./authReducer";
 import AuthContext from "./authContext";
 import axios from "axios";
-import { LOGIN, LOGIN_FAIL, SET_LOADING } from "../types";
+import { LOGIN, LOGIN_FAIL, SET_LOADING, LOGOUT } from "../types";
 
 const AuthState = (props) => {
   const initialState = {
@@ -50,11 +50,18 @@ const AuthState = (props) => {
     }
   };
 
+  const logout = () => {
+    dispatch({
+      type: LOGOUT,
+    });
+  };
+
   const value = {
     token: state.token,
     loading: state.loading,
     error: state.error,
     login,
+    logout,
   };
 
   return (
