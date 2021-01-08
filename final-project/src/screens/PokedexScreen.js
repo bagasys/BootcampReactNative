@@ -5,8 +5,6 @@ import pokemonContext from "../context/pokemon/pokemonContext";
 import PokemonList from "../components/PokemonList";
 
 const PokedexScreen = ({navigation}) => {
-
-
   return (
       <PokemonList navigation={navigation}/>
   );

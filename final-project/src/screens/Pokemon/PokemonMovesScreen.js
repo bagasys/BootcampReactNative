@@ -20,9 +20,11 @@ const PokemonMovesScreen = () => {
     <View style={styles.container}>
       <Card>
         <Card.Title
-            title={pokemon.name}
-            subtitle="Card Subtitle"
-            left={renderPokemonImage}
+          title={pokemon.name}
+          subtitle={`Height: ${pokemon.height / 10}m Weight: ${
+              pokemon.weight / 10
+          }kg`}
+          left={renderPokemonImage}
         />
       </Card>
       <Title style={{ marginLeft: 15 }}>Moves {pokemon.name}</Title>

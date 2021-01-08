@@ -1,34 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import {
-  FlatList,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-
-import {
-  Avatar,
-  Button,
-  Card,
-  Title,
-  Paragraph,
-  Chip,
-  ProgressBar,
-} from "react-native-paper";
-import StatBar from "../../components/StatBar";
+import React, { useContext } from "react";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Card, Chip, ProgressBar } from "react-native-paper";
 import pokemonContext from "../../context/pokemon/pokemonContext";
 
-const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
-
-const PokemonInfoScreen = ({ route }) => {
-  const { pokemon, getPokemon } = useContext(pokemonContext);
-
-  useEffect(() => {
-    getPokemon(route.params.name);
-  }, []);
-
+const PokemonInfoScreen = () => {
+  const { pokemon } = useContext(pokemonContext);
   const renderPokemonImage = (props) => {
     return (
       <Image
@@ -40,17 +16,11 @@ const PokemonInfoScreen = ({ route }) => {
       />
     );
   };
-  if (!pokemon) {
-    return (
-      <View>
-        <Text>asdas</Text>
-      </View>
-    );
-  }
+
   const stat_total = pokemon.stats.length;
   return (
     <View style={styles.container}>
-      <Card style={{ marginBottom: 20 }}>
+      <Card style={{ marginBottom: 10 }}>
         <Card.Title
           title={pokemon.name}
           subtitle={`Height: ${pokemon.height / 10}m Weight: ${
@@ -58,10 +28,9 @@ const PokemonInfoScreen = ({ route }) => {
           }kg`}
           left={renderPokemonImage}
         />
-        <Card.Content></Card.Content>
       </Card>
       <ScrollView>
-        <Card style={{ marginBottom: 20 }}>
+        <Card style={{ marginBottom: 10 }}>
           <Card.Title title="Abilites" />
           <Card.Content>
             {pokemon.abilities.map((ability) => (

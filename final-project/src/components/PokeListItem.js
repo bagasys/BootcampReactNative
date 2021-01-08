@@ -43,14 +43,15 @@ const PokemonListItem = ({ name, navigation }) => {
       style={styles.container}
       onPress={() => {
         navigation.navigate("Pokemon", {
-          screen: "Info",
-          params: { name: pokemon.name },
+          pokemon: pokemon,
         });
       }}
     >
       <Card.Title
         title={pokemon.name}
-        subtitle="Card Subtitle"
+        subtitle={`Height: ${pokemon.height / 10}m Weight: ${
+          pokemon.weight / 10
+        }kg`}
         left={renderPokemonImage}
       />
       <Card.Content>
